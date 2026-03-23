@@ -191,6 +191,7 @@
                     <a href="#projects" class="nav-link text-white/80 hover:text-white transition-colors">Projects</a>
                     <a href="#certifications" class="nav-link text-white/80 hover:text-white transition-colors">Certifications</a>
                     <a href="#seminars" class="nav-link text-white/80 hover:text-white transition-colors">Seminars</a>
+                    <a href="#contact" class="nav-link text-white/80 hover:text-white transition-colors">Contact</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -208,6 +209,7 @@
                 <a href="#projects" class="block py-2 text-white/80 hover:text-white transition-colors">Projects</a>
                 <a href="#certifications" class="block py-2 text-white/80 hover:text-white transition-colors">Certifications</a>
                 <a href="#seminars" class="block py-2 text-white/80 hover:text-white transition-colors">Seminars</a>
+                <a href="#contact" class="block py-2 text-white/80 hover:text-white transition-colors">Contact</a>
             </div>
         </div>
     </nav>
@@ -228,7 +230,7 @@
                         Marvin R.
                     </h2>
                     <p class="text-lg text-white/70 mb-8 max-w-xl leading-relaxed">
-                        A Web Application Developer student with knowledge in web development. Passionate about building functional systems using PHP, MySQL, and modern web technologies. Seeking an opportunity to gain real-world experience and contribute to innovative projects.
+                        An IT student with knowledge in web development. Passionate about building functional systems using PHP, MySQL, and modern web technologies. Seeking an opportunity to gain real-world experience and contribute to innovative projects.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#projects" class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 neon-border text-white font-medium">
@@ -405,7 +407,7 @@
                 </a>
                 
                 <!-- MediCare Project -->
-                <a href="https://medicare.42web.io/" class="block glass-card rounded-2xl p-6 neon-border hover:scale-[1.02] transition-all duration-300">
+                <a href="medicare.42web.io" class="block glass-card rounded-2xl p-6 neon-border hover:scale-[1.02] transition-all duration-300">
                     <div class="flex items-start gap-4 mb-4">
                         <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0" style="background-color: #DC2626;">
                             <i class="fas fa-heartbeat text-xl text-white"></i>
@@ -544,6 +546,59 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold gradient-text">Get In Touch</h2>
+                <p class="text-xl text-white/60 mt-4 max-w-2xl mx-auto">Have a project in mind? Let's discuss how I can help bring your vision to life.</p>
+            </div>
+            
+<div class="max-w-lg mx-auto">
+                <!-- Form Messages -->
+                <div id="formMessage" class="mb-6 p-4 rounded-xl glass-card border hidden transition-all duration-300" style="border-color: transparent;">
+                    <!-- Dynamic content -->
+                </div>
+                
+                <form action="contact.php" method="POST" id="contactForm" class="glass-card rounded-3xl p-8 neon-border">
+                    <div class="space-y-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-white/90 mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl glass-card neon-border border-white/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 focus:outline-none transition-all bg-white/5 placeholder-white/50 text-white" placeholder="Your name">
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-white/90 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl glass-card neon-border border-white/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 focus:outline-none transition-all bg-white/5 placeholder-white/50 text-white" placeholder="your.email@example.com">
+                        </div>
+                        
+                        <!-- Subject -->
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-white/90 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 rounded-xl glass-card neon-border border-white/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 focus:outline-none transition-all bg-white/5 placeholder-white/50 text-white" placeholder="Project collaboration, job opportunity, etc.">
+                        </div>
+                        
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-white/90 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl glass-card neon-border border-white/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 focus:outline-none transition-all resize-vertical bg-white/5 placeholder-white/50 text-white" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <!-- Submit -->
+                        <button type="submit" id="submitBtn" class="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 hover:scale-[1.02] transition-all duration-300 neon-border text-white font-semibold text-lg shadow-lg hover:shadow-purple-500/25 flex items-center justify-center">
+                            <span id="btnText"><i class="fas fa-paper-plane mr-2"></i>Send Message</span>
+                            <div id="loadingSpinner" class="hidden flex items-center gap-2">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-8 border-t border-white/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -554,7 +609,7 @@
                     <span class="text-white/60 text-sm">Portfolio</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="https://github.com/mrvnblgts" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/20 transition-all">
+                    <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/20 transition-all">
                         <i class="fab fa-github text-white/70"></i>
                     </a>
                     <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/20 transition-all">
@@ -570,6 +625,24 @@
             </div>
         </div>
     </footer>
+
+    <!-- Success Modal -->
+    <div class="fixed inset-0 z-50 hidden" id="successModal">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative max-w-md mx-auto mt-24 p-2">
+            <div class="glass-card rounded-2xl p-8 neon-border text-center max-h-[90vh] overflow-y-auto">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-check-circle text-4xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 gradient-text">Message Sent Successfully!</h3>
+                <p class="text-white/80 mb-8 leading-relaxed">Thank you for reaching out! I've received your message and will send you a confirmation email shortly. I'll get back to you within 24-48 hours.</p>
+                <button onclick="closeModal()" class="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 neon-border text-white font-semibold shadow-lg hover:shadow-purple-500/25">
+                    <i class="fas fa-times mr-2"></i>Close
+                </button>
+
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile Menu Toggle
@@ -610,6 +683,179 @@
                 nav.classList.remove('bg-black/20');
             }
         });
+
+        //Contact Form - Fixed
+        function initContactForm() {
+            console.log('Contact form initialized'); // Debug log
+            
+            const form = document.getElementById('contactForm');
+            const modal = document.getElementById('successModal');
+            const messageDiv = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            form.addEventListener('submit', async function(e){
+                e.preventDefault();
+
+                // Clear previous messages
+                clearFormMessages();
+
+                // Client-side validation
+                const errors = validateForm();
+                if (errors.length > 0) {
+                    showFormError(errors.join(', '));
+                    return;
+                }
+
+                // Show loading
+                showLoading(true);
+
+                try {
+                    const response = await fetch('contact.php', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        showModal();
+                        form.reset();
+                    } else {
+                        showFormError(data.message || 'Unknown error occurred');
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showFormError('Failed to send message. Please check your connection and try again.');
+                } finally {
+                    showLoading(false);
+                }
+            });
+
+            function validateForm() {
+                const errors = [];
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const subject = document.getElementById('subject').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name) errors.push('Name is required');
+                else if (name.length < 2) errors.push('Name must be at least 2 characters');
+
+                if (!email) errors.push('Email is required');
+                else {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) errors.push('Please enter a valid email');
+                }
+
+                if (!subject) errors.push('Subject is required');
+                if (!message) errors.push('Message is required');
+                else if (message.length < 10) errors.push('Message must be at least 10 characters');
+
+                return errors;
+            }
+
+            function clearFormMessages() {
+                const messageDiv = document.getElementById('formMessage');
+                messageDiv.classList.add('hidden');
+                messageDiv.innerHTML = '';
+                messageDiv.style.borderColor = '';
+            }
+
+            function showFormError(message) {
+                const messageDiv = document.getElementById('formMessage');
+                messageDiv.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                messageDiv.classList.remove('hidden');
+                messageDiv.style.borderColor = '#EF4444';
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            function showLoading(show) {
+                const submitBtn = document.getElementById('submitBtn');
+                const btnText = document.getElementById('btnText');
+                const loadingSpinner = document.getElementById('loadingSpinner');
+                
+                if (show) {
+                    btnText.classList.add('hidden');
+                    loadingSpinner.classList.remove('hidden');
+                    submitBtn.disabled = true;
+                } else {
+                    btnText.classList.remove('hidden');
+                    loadingSpinner.classList.add('hidden');
+                    submitBtn.disabled = false;
+                }
+            }
+
+            function showError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const formGroup = input.closest('.form-group');
+        
+            // Remove any existing error
+            const existingError = formGroup.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            // Add error styles
+            input.style.borderColor = '#EF4444';
+        
+            // Show error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.style.color = '#EF4444';
+            errorDiv.style.fontSize = '0.75rem';
+            errorDiv.style.marginTop = '4px';
+            errorDiv.textContent = message;
+            formGroup.appendChild(errorDiv);
+
+            // Remove error on input
+            input.addEventListener('input', function() {
+                input.style.borderColor = '';
+                if (errorDiv.parentElement) {
+                    errorDiv.remove();
+                }
+                }, { once: true });
+        }
+
+        function showModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        window.closeModal = function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scroll
+        };
+
+        // Close modal on outside click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+
+    // Initialize contact form when DOM loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initContactForm();
+    });
     </script>
 </body>
 </html>
