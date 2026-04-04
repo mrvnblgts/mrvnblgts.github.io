@@ -13,7 +13,7 @@
                     colors: {
                         neon: {
                             purple: '#a855f7',
-                            blue: '#3b82f6',
+                            blue: '#01bffe',
                             pink: '#ec4899',
                         }
                     },
@@ -38,12 +38,18 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
         
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+        
         * {
             font-family: 'Outfit', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #0f0a1f 0%, #1a1033 50%, #0d1129 100%);
+            background: #121212;
             min-height: 100vh;
         }
         
@@ -57,29 +63,49 @@
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(168, 85, 247, 0.5);
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
         }
         
         .neon-border {
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.1);
+            position: relative;
+            --border-width: 2px;
         }
         
-        .neon-border:hover {
-            border-color: rgba(168, 85, 247, 0.8);
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5), inset 0 0 20px rgba(168, 85, 247, 0.2);
+        .neon-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: var(--border-width);
+            margin: -var(--border-width);
+            background: conic-gradient(
+                from var(--angle),
+                #a855f7,
+                #01bffe,
+                #ec4899,
+                #a855f7
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            border-radius: inherit;
+            z-index: -1;
+            animation: rotate 4s linear infinite;
         }
         
-        .glow-text {
-            text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(168, 85, 247, 0.6), 0 0 30px rgba(168, 85, 247, 0.4);
+        @keyframes rotate {
+            from { --angle: 0deg; }
+            to { --angle: 360deg; }
         }
         
-        .glow-text-blue {
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
-        }
+        
+    
         
         .gradient-text {
-            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #ec4899 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #01bffe 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -96,7 +122,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #a855f7, #3b82f6);
+            background: linear-gradient(90deg, #a855f7, #01bffe);
             transition: width 0.3s ease;
         }
         
@@ -109,7 +135,7 @@
         }
         
         .skill-icon {
-            background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #01bffe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -166,7 +192,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #a855f7, #3b82f6);
+            background: linear-gradient(90deg, #a855f7, #01bffe);
             border-radius: 2px;
         }
     </style>
@@ -228,10 +254,10 @@
                         Marvin R.
                     </h2>
                     <p class="text-lg text-white/70 mb-8 max-w-xl leading-relaxed">
-                        An IT student with knowledge in web development. Passionate about building functional systems using PHP, MySQL, and modern web technologies. Seeking an opportunity to gain real-world experience and contribute to innovative projects.
+                        A motivated IT student with knowledge in web development. Passionate about building functional systems using PHP, MySQL, and modern web technologies. Seeking an opportunity to gain real-world experience and contribute to innovative projects.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#projects" class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 neon-border text-white font-medium">
+                        <a href="#projects" class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-[#01bffe] hover:from-purple-500 hover:to-cyan-500 transition-all duration-300 neon-border text-white font-medium">
                             <i class="fas fa-eye mr-2"></i>View Projects
                         </a>
                         <a href="#skills" class="px-6 py-3 rounded-full glass-card neon-border hover:bg-white/10 transition-all duration-300 text-white font-medium">
@@ -249,7 +275,7 @@
                         <div class="w-64 h-64 rounded-2xl gradient-bg flex items-center justify-center">
                             <div class="w-56 h-56 rounded-2xl glass-card flex items-center justify-center">
                                 <div class="text-center">
-                                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-4">
+                                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center mb-4">
                                         <span class="text-5xl font-bold">MR</span>
                                     </div>
                                     <div class="flex justify-center gap-2">
@@ -290,7 +316,7 @@
             </div>
             <div class="glass-card rounded-2xl p-8 neon-border">
                 <div class="flex flex-col md:flex-row items-center gap-6">
-                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center flex-shrink-0">
                         <i class="fas fa-graduation-cap text-3xl text-white"></i>
                     </div>
                     <div class="text-center md:text-left">
@@ -316,7 +342,7 @@
                 <!-- SQL -->
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-105 transition-all duration-300 cursor-pointer group">
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-4 group-hover:animate-pulse">
+                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center mb-4 group-hover:animate-pulse">
                             <i class="fas fa-database text-3xl text-white"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-white">SQL</h3>
@@ -327,7 +353,7 @@
                 <!-- PHP -->
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-105 transition-all duration-300 cursor-pointer group">
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-4 group-hover:animate-pulse">
+                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center mb-4 group-hover:animate-pulse">
                             <i class="fab fa-php text-3xl text-white"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-white">PHP</h3>
@@ -338,7 +364,7 @@
                 <!-- JavaScript -->
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-105 transition-all duration-300 cursor-pointer group">
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-4 group-hover:animate-pulse">
+                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center mb-4 group-hover:animate-pulse">
                             <i class="fab fa-js text-3xl text-white"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-white">JavaScript</h3>
@@ -349,7 +375,7 @@
                 <!-- HTML & CSS -->
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-105 transition-all duration-300 cursor-pointer group">
                     <div class="text-center">
-                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-4 group-hover:animate-pulse">
+                        <div class="w-16 h-16 mx-auto rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center mb-4 group-hover:animate-pulse">
                             <i class="fab fa-html5 text-3xl text-white"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-white">HTML & CSS</h3>
@@ -371,7 +397,7 @@
                 <!-- Project 1 -->
                 <a href="https://iglot.42web.io/" class="block glass-card rounded-2xl p-6 neon-border hover:scale-[1.02] transition-all duration-300">
                     <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-egg text-xl text-white"></i>
                         </div>
                         <div>
@@ -407,7 +433,7 @@
                 <!-- MediCare Project -->
                 <a href="https://medicare.42web.io/" class="block glass-card rounded-2xl p-6 neon-border hover:scale-[1.02] transition-all duration-300">
                     <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0" style="background-color: #DC2626;">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center flex-shrink-0" style="background-color: #DC2626;">
                             <i class="fas fa-heartbeat text-xl text-white"></i>
                         </div>
                         <div>
@@ -443,7 +469,7 @@
                 <!-- Project 2 -->
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-[1.02] transition-all duration-300">
                     <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-warehouse text-xl text-white"></i>
                         </div>
                         <div>
@@ -481,7 +507,7 @@
                 <!-- Certification 1 -->
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-[1.01] transition-all duration-300">
                     <div class="flex flex-col md:flex-row items-center gap-4">
-                        <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-certificate text-2xl text-white"></i>
                         </div>
                         <div class="text-center md:text-left flex-1">
@@ -497,7 +523,7 @@
                 <!-- Certification 2 
                 <div class="glass-card rounded-2xl p-6 neon-border hover:scale-[1.01] transition-all duration-300">
                     <div class="flex flex-col md:flex-row items-center gap-4">
-                        <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-palette text-2xl text-white"></i>
                         </div>
                         <div class="text-center md:text-left flex-1">
@@ -526,7 +552,7 @@
             <div class="glass-card rounded-2xl p-8 neon-border">
                 <div class="flex flex-col md:flex-row items-center justify-center gap-6">
                     <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-purple-600 to-[#01bffe] flex items-center justify-center">
                             <i class="fas fa-microphone text-xl text-white"></i>
                         </div>
                         <div class="text-center md:text-left">
@@ -554,7 +580,7 @@
                     <span class="text-white/60 text-sm">Portfolio</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="https://github.com/mrvnblgts" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/20 transition-all">
+                    <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/20 transition-all">
                         <i class="fab fa-github text-white/70"></i>
                     </a>
                     <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/20 transition-all">
