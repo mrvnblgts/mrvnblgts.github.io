@@ -2,11 +2,11 @@ export const timelineItems = [
   {
     type: "education",
     date: "2023 – 2026",
-    title: "BS in Web Application Development",
+    title: "Diploma in Web Application Development",
     organization: "ACLC College of Tacloban",
     description:
-      "Pursuing a Bachelor of Science degree with a focus on modern web technologies, database systems, and software engineering principles.",
-    highlight: "Current",
+      "Completed a three-year diploma program focused on modern web technologies, database systems, and software engineering principles.",
+    highlight: null,
   },
   {
     type: "certification",

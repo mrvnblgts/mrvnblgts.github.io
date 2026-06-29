@@ -43,3 +43,11 @@
     outline-offset: 2px;
   }
 }
+
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ring-spin-reverse {
+  to { transform: rotate(-360deg); }
+}

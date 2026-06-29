@@ -64,7 +64,7 @@ export default function Hero() {
         className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
       />
 
-      <Container className="relative z-10 py-32 lg:py-0">
+      <Container className="relative z-10 py-32 lg:pt-24 lg:pb-0">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 min-h-screen">
           {/* Left column */}
           <motion.div
@@ -176,12 +176,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             className="hidden lg:flex items-center justify-center"
           >
-            <div className="relative">
-              {/* Orbiting tech badges using rotation container approach */}
-              <motion.div
-                animate={reducedMotion ? {} : { rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 pointer-events-none overflow-visible"
+            <div className="relative w-96 h-96 flex items-center justify-center">
+              <div
+                className="absolute inset-0 z-10 pointer-events-none overflow-visible"
+                style={reducedMotion ? {} : { animation: "ring-spin 25s linear infinite" }}
               >
                 {[
                   { label: "Vue", offset: 0 },
@@ -194,21 +192,32 @@ export default function Hero() {
                     key={tech.label}
                     className="absolute top-1/2 left-1/2"
                     style={{
-                      transform: `rotate(${tech.offset}deg) translateY(-135px) rotate(-${tech.offset}deg)`,
+                      transform: `rotate(${tech.offset}deg) translateY(-160px)`,
                     }}
                   >
-                    <span className="block px-3 py-1.5 rounded-lg bg-bg-card border border-border-subtle text-xs font-semibold text-accent-primary font-heading shadow-sm whitespace-nowrap">
+                    <span
+                      style={
+                        reducedMotion
+                          ? {}
+                          : {
+                              display: "inline-block",
+                              animation: "ring-spin-reverse 25s linear infinite",
+                              animationDelay: `${-(tech.offset / 360) * 25}s`,
+                            }
+                      }
+                      className="block px-3 py-1.5 rounded-lg bg-bg-card border border-border-subtle text-xs font-semibold text-accent-primary font-heading shadow-sm whitespace-nowrap"
+                    >
                       {tech.label}
                     </span>
                   </div>
                 ))}
-              </motion.div>
+              </div>
 
               {/* Profile placeholder */}
               <motion.div
                 animate={{ y: reducedMotion ? 0 : [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-72 h-72 rounded-3xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-border-subtle overflow-hidden"
+                className="w-72 h-72 rounded-3xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-border-subtle overflow-hidden"
               >
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">

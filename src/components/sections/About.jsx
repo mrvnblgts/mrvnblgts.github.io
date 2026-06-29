@@ -29,10 +29,10 @@ export default function About() {
           <div className="lg:col-span-3 space-y-5">
             <ScrollReveal delay={0.1}>
               <p className="text-text-secondary leading-relaxed text-base lg:text-lg">
-                I&apos;m a full-stack web developer currently pursuing a BS in Web
-                Application Development at ACLC College of Tacloban. I specialize
-                in building complete, production-ready applications — from
-                database design to polished user interfaces.
+                I&apos;m a full-stack web developer specializing in building complete,
+                production-ready applications — from database design to polished
+                user interfaces. I bring together frontend craftsmanship and
+                backend reliability to deliver software that works.
               </p>
             </ScrollReveal>
 
