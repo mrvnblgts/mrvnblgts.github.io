@@ -30,7 +30,7 @@ export default function About() {
             <ScrollReveal delay={0.1}>
               <p className="text-text-secondary leading-relaxed text-base lg:text-lg">
                 I&apos;m a full-stack web developer specializing in building complete,
-                production-ready applications — from database design to polished
+                production-ready applications - from database design to polished
                 user interfaces. I bring together frontend craftsmanship and
                 backend reliability to deliver software that works.
               </p>
