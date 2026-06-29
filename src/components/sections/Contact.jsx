@@ -21,7 +21,7 @@ export default function Contact() {
 
       <Container className="relative z-10">
         <div className="text-center">
-          <SectionHeading className="flex justify-center">Get In Touch</SectionHeading>
+          <SectionHeading centered>Get In Touch</SectionHeading>
         </div>
 
         <div className="max-w-lg mx-auto text-center space-y-8">

@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 
-export default function SectionHeading({ children, className = "" }) {
+export default function SectionHeading({ children, centered = false, className = "" }) {
   const reducedMotion = useReducedMotion();
 
   return (
@@ -15,7 +15,7 @@ export default function SectionHeading({ children, className = "" }) {
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-primary">
         {children}
       </h2>
-      <div className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary" />
+      <div className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary ${centered ? "mx-auto" : ""}`} />
     </motion.div>
   );
 }
