@@ -1,0 +1,45 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap';
+
+@import "tailwindcss";
+
+@theme {
+  --color-bg-root: #09090b;
+  --color-bg-surface: #0f0f13;
+  --color-bg-card: #16161e;
+  --color-bg-elevated: #1c1c26;
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-muted: rgba(255, 255, 255, 0.08);
+  --color-accent-primary: #818cf8;
+  --color-accent-secondary: #22d3ee;
+  --color-accent-warm: #f59e0b;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #52525b;
+  --color-text-accent: #a5b4fc;
+  --font-family-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-muted) transparent;
+  }
+
+  body {
+    background-color: var(--color-bg-root);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(129, 140, 248, 0.3);
+    color: #fafafa;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+  }
+}
